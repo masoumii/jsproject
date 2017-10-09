@@ -2,8 +2,80 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+	#list{
+		background-color:navy;
+		color:white;
+		border:black;
+		width:170px;
+		height:200px;
+		overflow-y:scroll;
+		padding:10px;
+		text-align: center;
+	}
+
+
+	li
+	{
+		list-style-type: none;
+	}
+</style>
 </head>
 <body>
 
+	<input type="text" id="listItem">
+
+	<button onclick="insertItem(listItem)">Insert</button>
+	<button onclick="clearList()">Clear List</button>
+
+
+	<div id="list">
+		
+	</div>
+
 </body>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	var div = document.getElementById('list');
+	var list = [];
+	var listItem;
+
+
+	function showList(){
+		div.innerHTML = list.join("");
+		document.getElementById("listItem").value = "";
+	}
+
+
+	function clearList(){
+		div.innerHTML = "";
+		list = [];
+	}
+
+
+	function insertItem(listItem){
+
+		var listItem = document.querySelector("#listItem").value;
+		list.push("<li>"+listItem+"</li>");
+		console.log(listItem);
+
+
+		showList();
+
+	}
+
+
+
+
+
+
+
+
+</script>
 </html>
